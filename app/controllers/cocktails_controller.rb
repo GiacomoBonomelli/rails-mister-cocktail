@@ -24,6 +24,6 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name,doses_attributes: Dose.attribute_names.map(&:to_sym).push(:_destroy))
+    params.require(:cocktail).permit(:name,doses_attributes: [:id, :description])
   end
 end

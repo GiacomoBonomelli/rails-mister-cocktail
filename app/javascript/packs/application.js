@@ -5,6 +5,8 @@
 import 'bootstrap';
 require("@rails/ujs").start()
 require("turbolinks").start()
+//= require jquery
+//= require jquery_ujs
 require("@rails/activestorage").start()
 require("channels")
 
@@ -15,12 +17,3 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-$(document).on('turbolinks:load', function(){
-  $('form').on('click','.add_fields', function(event) {
-    var regexp, time;
-    time = new Date().getTime();
-    regexp = new RegExp($(this).data('id'),'g');
-    $('.fields').append($(this).data('fields').replace(regexp,time));
-    return event.preventDefault();
-  });
-});

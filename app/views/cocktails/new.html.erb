@@ -1,0 +1,15 @@
+<h1>Cocktails#new</h1>
+
+
+
+<%= simple_form_for @cocktail do |f| %>
+<%= f.input :name %>
+<%= f.association :ingredients, as: :radio_buttons %>
+<div class="fields">
+  <%= f.simple_fields_for :doses do |builder| %>
+  <%= builder %>
+  <% end %>
+</div>
+  <%= f.button :submit %>
+  <%= link_to_add_row('Add Ingredient', f, :doses, class: 'btn btn-primary') %>
+<% end %>
